@@ -15,13 +15,41 @@ namespace u23717662_HW01.Models
                 {
                    Title ="Advanced Life Support",
                     Type = "ALS" ,
+                   
                 },
                 
                 new BLS
                 {
                     Title = "Basic Life Support",
                     Type = "BLS" ,
-                }
+                },
+                new PT
+                {
+                   Title = "Paitient Transport",
+                   Type = "PT" ,
+                },
+                new MUV
+                {
+                    Title = "Medical Utility Vehicle",
+                    Type = "MUV" ,
+                },
+                 
+                new EMA
+                {
+                    Title = "Event Medical Ambulance",
+                    Type = "EMA" ,
+                },
+
+                new BLS
+                {
+                    Title = "Air Ambulance",
+                    Type = "AA" ,
+                },
+
+
+
+
+
             };
         }
     }

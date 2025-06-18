@@ -32,6 +32,10 @@ namespace u23717662_HW01.Controllers
                 Repository repository = new Repository();
                 return View(repository.GetService());
         }
-        
+
+        public ActionResult Booking()
+        {
+            return View();
+        }        
     }
 }
