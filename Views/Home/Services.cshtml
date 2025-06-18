@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Services";
+}
+
+<h2>Services</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card">
+                
+                <div class="card-body">
+                    <h5 class="card-title">@item.Type</h5>
+                    <h6>@item.Title</h6>
+   
+                    <p class="card-text"><small class="text-muted">@item.ToString()</small></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
