@@ -1,0 +1,47 @@
+﻿@model IEnumerable<u23717662_HW01.Models.BookingConfirmedViewModel>
+
+@{
+    ViewBag.Title = "Ride History";
+}
+
+<div class="container my-5">
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <img src="~/Content/Images/time_logo.png" alt="Clock Logo" width="100" class="mb-3"  />
+        <h2 class="fw-bold">Ride History</h2>
+    </div>
+
+    <!-- Ride Cards -->
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            var bookingDate = item.Booking.BookingDate.ToString("d");
+            var isSOS = item.Booking.isSOS;
+            var dateDisplay = isSOS ? $"{bookingDate} - SOS" : bookingDate;
+
+            <div class="col-12 col-md-10 mb-4">
+                <a href="@Url.Action("BookingConfirmed2", "Home", new { BookingID = item.Booking.BookingID })"
+                   style="text-decoration: none; color: inherit;">
+                    <div class="card p-5 shadow-lg @(isSOS ? "border-danger border-3" : "")" style="border-radius: 16px; min-height: 250px;">
+                        <div class="card-body">
+                            <h3 class="card-title fw-bold @(isSOS ? "text-danger" : "")">
+                                @dateDisplay
+                            </h3>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="card-text mb-2"><strong>Booking ID:</strong> @item.Booking.BookingID</p>
+                                    <p class="card-text mb-2"><strong>Driver Name:</strong> @item.Driver.FirstName</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text mb-2"><strong>Ambulance Type:</strong> @item.Vehicle.Type</p>
+                                    <p class="card-text mb-0"><strong>Pick-Up Address:</strong> @item.Booking.PickupAddress</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

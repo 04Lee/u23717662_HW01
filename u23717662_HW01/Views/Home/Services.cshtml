@@ -1,0 +1,47 @@
+﻿@model IEnumerable<u23717662_HW01.Models.Service>
+
+@{
+    ViewBag.Title = "Services";
+}
+
+<h2>Services</h2>
+
+
+
+<div class="row text-center">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <a href="@Url.Action("Book", "Home", new { id = item.ServiceID })" class="text-decoration-none text-dark">
+                <div class="service-card">
+                    <img src="@Url.Content(item.ImagePath)" class="img-fluid mb-2" style="max-height: 120px;" alt="@item.Name">
+                    <h5>@item.Name</h5>
+                    <p>@item.Description</p>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+<style>
+    .service-card {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        height: 100%;
+    }
+
+        .service-card:hover {
+            background-color: #e2e6ea;
+            transform: scale(1.02);
+        }
+
+        .service-card h5 {
+            font-weight: bold;
+        }
+</style>
+
+

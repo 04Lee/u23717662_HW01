@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="background-color: lightcoral ">
+    <style>
+        /* Custom hover effects */
+        .hover-effect {
+            transition: all 0.3s ease;
+        }
+
+            .hover-effect:hover {
+                color: red !important; /* Bootstrap primary blue */
+                transform: scale(1.2); /* Slightly larger on hover */
+                text-decoration: none !important;
+            }
+
+        /* Remove default Bootstrap nav-pills styling */
+        .nav-pills .nav-link {
+            background-color: transparent !important;
+        }
+    </style>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container-fluid bg-white">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <img src="~/Content/Images/Logo.JPG" alt="Logo" width="300" />
+                <span class="fs-4"></span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a href="/Home/Index" class="nav-link text-dark text-decoration-none hover-effect">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Home/RideHistory" class="nav-link text-dark text-decoration-none hover-effect">Ride History</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Home/VehicleDriver" class="nav-link text-dark text-decoration-none hover-effect">Manage</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Ntando Mchunu Homework Assignment</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

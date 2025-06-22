@@ -1,0 +1,70 @@
+﻿@model u23717662_HW01.Models.BookingConfirmedViewModel
+
+@{
+    ViewBag.Title = "Booking Confirmed";
+}
+
+<div class="container py-5" style="background-color: lightcoral; min-height: 100vh;">
+
+    <!-- ✅ Header Section -->
+    <div class="text-center mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="green" class="bi bi-check-circle-fill mb-3" viewBox="0 0 16 16">
+            <path d="M16 8a8 8 0 1 1-16 0 8 8 0 0 1 16 0zM6.97 10.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 1 0-1.06-1.06L7.5 8.44 5.53 6.47a.75.75 0 0 0-1.06 1.06l2.5 2.5z" />
+        </svg>
+        <h2 class="text-success fw-bold">Booking Confirmed</h2>
+        <p class="text-muted">Your emergency ride has been successfully booked. Details below.</p>
+    </div>
+
+    <!-- 📅 Booking Information Card -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h5 class="card-title mb-3">
+                <i class="bi bi-calendar-check-fill text-primary"></i> Booking Details
+            </h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Booking ID:</strong> @Model.Booking.BookingID</p>
+                    <p><strong>Date Booked:</strong> @Model.Booking.BookingDate.ToString("dd MMMM yyyy HH:mm")</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Pickup Time:</strong> @Model.Booking.PickupTime.ToString("dd/MM/yyyy HH:mm")</p>
+                    <p><strong>Pickup Address:</strong> @Model.Booking.PickupAddress</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 👨‍✈️ Driver Information Card -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body d-flex flex-column flex-md-row align-items-center">
+            <img src="@Url.Content(Model.Driver.ImagePath)"
+                 alt="Driver Image"
+                 class="img-fluid rounded-circle mb-3 mb-md-0 me-md-4"
+                 style="width: 120px; height: 120px; object-fit: cover;" />
+            <div>
+                <h5 class="card-title mb-2">
+                    <i class="bi bi-person-fill text-primary"></i> Driver Details
+                </h5>
+                <p><strong>Name:</strong> @Model.Driver.FirstName</p>
+                <p><strong>Phone Number:</strong> @Model.Driver.PhoneNumber</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🚑 Vehicle Information Card -->
+    <div class="card shadow-sm">
+        <div class="card-body d-flex flex-column flex-md-row align-items-center">
+            <img src="@Url.Content(Model.Vehicle.ImagePath)"
+                 alt="Ambulance Image"
+                 class="img-fluid rounded mb-3 mb-md-0 me-md-4"
+                 style="width: 200px; height: 120px; object-fit: cover;" />
+            <div>
+                <h5 class="card-title mb-2">
+                    <i class="bi bi-truck-front-fill text-primary"></i> Ambulance Details
+                </h5>
+                <p><strong>Type:</strong> @Model.Vehicle.Type</p>
+            </div>
+        </div>
+    </div>
+
+</div>
